@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Browser Control - URL</title>
+</head>
+<body>
+<script>
+var whereWeAt = window.location.href;
+var theDomain = window.location.hostname;
+var thePath = window.location.pathname;
+var theAnchor = window.location.hash;
+var locationVars = [whereWeAt,theDomain,thePath,theAnchor];
+
+function logArrayElements(element, index) {
+    console.log('a[' + index + ']: ' + element);
+}
+locationVars.forEach(logArrayElements);
+// for (var i = 0;i < locationVars.length;i++) {
+//     console.log(locationVars[i]);
+// }
+// var url = 'http://www.apple.com';
+// var page = '/macbook'
+// var destination = url + page;
+// window.location.href = destination;
+// document.URL = destination;
+// window.location.assign(destination);
+
+</script>
+</body>
+</html>

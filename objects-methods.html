@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Objects - Methods</title>
+</head>
+<body>
+<script>
+plan1 = {
+    name: 'Basic',
+    price: 3.99,
+    space: 100,
+    transfer: 1000,
+    pages: 10,
+    discountMos: [6,7],
+    calcAnnual: function(percentIfDisc) {
+        var price = this.price;
+        var rightNow = new Date();
+        var thisMonth = rightNow.getMonth();
+        for (i = 0; i < 11; i++) {
+            if (this.discountMos[i] === thisMonth) {
+                price = price * percentIfDisc;
+                break;
+            }
+        }
+        return price * 12;
+    }
+},
+plan2 = {
+    name: 'Professional',
+    price: 5.99,
+    space: 500,
+    transfer: 5000,
+    pages: 50,
+    discountMos: [6,7,11]
+},
+plan3 = {
+    name: 'Basic',
+    price: 9.99,
+    space: 2000,
+    transfer: 20000,
+    pages: 500,
+    discountMos: [6,7]
+}
+var planOnePrice = plan1.calcAnnual(.50);
+alert(planOnePrice);
+
+</script>
+</body>
+</html>

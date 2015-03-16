@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Objects - Constructors</title>
+</head>
+<body>
+<script>
+function Plan(name,price,space,transfer,pages,discountMonths) {
+    this.name = name;
+    this.price = price;
+    this.space = space;
+    this.transfer = transfer;
+    this.pages = pages;
+    this.discountMonths = discountMonths;
+}
+Plan.prototype.calcAnnual = function(percentIfDisc) {
+    var bestPrice = this.price;
+    var rightNow = new Date();
+    var thisMonth = rightNow.getMonth();
+    for (i = 0; i < 11; i++) {
+        if (this.discountMonths[i] === thisMonth) {
+            bestPrice = this.price * percentIfDisc;
+            break;
+        }
+    }
+    return bestPrice * 12;
+};
+Plan.prototype.cancellable = true;
+var plan1 = new Plan("Basic", 3.99, 100, 1000, 10, [6,7]);
+alert(plan1.calcAnnual(.5));
+
+</script>
+</body>
+</html>

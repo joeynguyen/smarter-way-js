@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Manipulating Images and Text</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .angry {
+            color: red;
+        }
+        .big {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<img src="hot-air-balloon.png" id="balloon" onClick="makeInvisible();" />
+<p id="yelling" class="angry" onClick="addBig();" >HEY</p>
+<img src="hot-air-balloon.png" id="balloon2" onClick="swapPic(id, 'ornate.jpg');" />
+<script>
+function makeInvisible() {
+    document.getElementById('balloon').className = 'hidden';
+}
+function addBig() {
+    document.getElementById('yelling').className += ' big';
+}
+function swapPic(eId, newPic) {
+    document.getElementById(eId).src = newPic;
+}
+</script>
+</body>
+</html>

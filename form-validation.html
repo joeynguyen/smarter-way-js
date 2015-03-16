@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body onload="initElement('lastNameField');">
+    <form onSubmit="return validateForm('lastNameField','states');">
+        Please enter your last name. <br />
+        <select id="states">
+            <option value="" selected="selected">Select state</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+        </select>
+
+        <input type="text" id="lastNameField" />
+        <input type="submit" value="Submit Form" />
+    </form>
+
+<script>
+
+function validateForm(textField, selectField) {
+    if (checkForSelection(selectField) && checkForLastName(textField)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkForLastName(el) {
+    var targetTextField;
+    targetTextField = document.getElementById(el);
+    if (targetTextField.value.length === 0) {
+        alert("Please enter your last name.");
+        targetTextField.focus();
+        targetTextField.style.background = "yellow";
+        return false;
+    }
+    return true;
+}
+function checkForSelection(el) {
+    var targetSelectField;
+    targetSelectField = document.getElementById(el);
+    if (targetSelectField.selectedIndex === 0) {
+        alert("Please enter your state.");
+        return false;
+    }
+    return true;
+}
+function initElement(el) {
+    targetTextField = document.getElementById(el);
+    targetTextField.onblur = changeColor;
+}
+function changeColor() {
+    if (targetTextField.value.length > 0) {
+        targetTextField.style.background = "white";
+    }
+}
+</script>
+</body>
+</html>

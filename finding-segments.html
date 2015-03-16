@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Finding Segments</title>
+</head>
+<body>
+<script>
+var text = 'It is startling to think that, even in the darkest depths of World War II. It is startling to think that, even in the darkest depths of World War II. It is startling to think that, even in the darkest depths of World War II. It is startling to think that, even in the darkest depths of World War II.';
+var textLength = text.length;
+var textChanged = false;
+var firstChar = text.indexOf('World War II');
+var newText = text.replace(/World War II/g, 'the second World War');
+alert(newText);
+var changeText = function() {
+    if (firstChar !== -1) {
+        text = text.slice(0, firstChar) + 'the second World War' + text.slice(firstChar + 12);
+        firstChar = text.indexOf('World War II');
+        changeText();
+    }
+    else {
+        textChanged = true;
+    }
+}
+changeText();
+if (textChanged === true) {
+    alert(text);
+}
+
+</script>
+</body>
+</html>

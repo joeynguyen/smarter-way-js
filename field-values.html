@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Field Values</title>
+</head>
+<body>
+<form>
+Zip code: <input type="text" id="zip" onBlur="updateCity();" />
+City: <input type="text" id="city" />
+</form>
+
+<script>
+function updateCity() {
+    var zipCode = document.getElementById('zip').value;
+    var city;
+    switch(zipCode) {
+        case "77083" :
+            city = "Houston";
+            break;
+        case "75254" :
+            city = "Dallas";
+            break;
+        case "78705" :
+            city = "Austin";
+            break;
+    }
+    document.getElementById('city').value = city;
+}
+</script>
+</body>
+</html>
